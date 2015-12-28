@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .container
+    .card
+      #front
+        .progress-wrap
+          progress(max='100' value='0' id='progress')
+        h1 Time In Poo
+        hr
+        form(method='post', action='/calculate/index', class='calculator' id='calculator')
+          .form-group
+            label What's your annual salary?
+            input.form-control(name='salary', type='number', required='required' placeholder="$1,000,000" onfocus="this.placeholder = ''" onblur="this.placeholder = '$1,000,000'")
+          .form-group
+            label How many office hour poops do you make?
+            input.form-control(name='poops', type='number', required='required' placeholder="Per day" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Per day'")
+          .form-group
+            label How long does your average poop take?
+            input.form-control(name='time', type='number', required='required' placeholder="In minutes" onfocus="this.placeholder = ''" onblur="this.placeholder = 'In minutes'")
+          input.btn.btn-default(name='submit', type='submit', index='Calculate' required='required')
+        div#cost #{cost}
+        hr
+        p.footer: #[a(href='#', id='hide') About #[span]]
+      #about
+        h1 About
+        hr
+        p We live in a time where penalty rates, overtime and time in lieu are almost non-existent for professional workers.
+        br
+        p This silly, little tool guestimates how much money you cost your employer per day to poop.
+        br
+        p So the next time nature calls, take your time and bask in the notion of being paid to poop.
+        hr
+        p.footer: #[a(href='#', id='show') Go Back #[span]]
+  img(src= '/images/poo.png' class='fix')
